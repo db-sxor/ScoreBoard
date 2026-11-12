@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}점수판{% endblock %}
+{% block body %}
+<main class="page-shell">
+  <header class="topbar simple-topbar">
+    <h1></h1>
+  </header>
+
+  <section id="team-list" class="team-grid" aria-live="polite">
+    <div class="loading-card">점수를 불러오는 중입니다.</div>
+  </section>
+
+  <section class="panel history-panel public-history">
+    <h2 class="simple-section-title">최근 점수 변동</h2>
+    <div id="event-list" class="event-list">
+      <div class="empty-state">아직 점수 기록이 없습니다.</div>
+    </div>
+  </section>
+</main>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}

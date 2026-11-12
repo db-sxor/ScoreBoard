@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}점수판 관리자{% endblock %}
+{% block body %}
+<main class="page-shell admin-shell">
+  <header class="topbar simple-topbar">
+    <h1>점수판 관리자</h1>
+    <form method="post" action="/admin/logout">
+      <button class="ghost-btn" type="submit">로그아웃</button>
+    </form>
+  </header>
+
+  <section class="panel control-panel">
+    <h2 class="simple-section-title">점수 입력</h2>
+
+    <div id="admin-teams" class="admin-team-select"></div>
+
+    <div class="stepper">
+      <button id="points-down" class="stepper-btn" type="button" aria-label="1점 내리기">▼</button>
+      <div id="points-value" class="stepper-value zero">0</div>
+      <button id="points-up" class="stepper-btn" type="button" aria-label="1점 올리기">▲</button>
+    </div>
+
+    <div id="selected-summary" class="selected-summary empty" style="display: none;"></div>
+    <button id="submit-score" class="primary-btn full-btn" type="button" disabled>점수 등록</button>
+  </section>
+
+  <section class="panel settings-panel">
+    <h2 class="simple-section-title">팀 이름 변경</h2>
+    <div class="team-name-fields">
+      <input id="team-name-1" class="text-input" maxlength="20" aria-label="1번 팀 이름">
+      <input id="team-name-2" class="text-input" maxlength="20" aria-label="2번 팀 이름">
+      <input id="team-name-3" class="text-input" maxlength="20" aria-label="3번 팀 이름">
+    </div>
+    <button id="save-team-names" class="secondary-btn full-btn" type="button">저장</button>
+
+    <div class="utility-actions">
+      <button id="undo-score" class="secondary-btn" type="button">마지막 점수 취소</button>
+      <button id="reset-scores" class="danger-btn" type="button">전체 점수 초기화</button>
+    </div>
+  </section>
+
+  <section class="panel history-panel">
+    <h2 class="simple-section-title">점수 변경 내역</h2>
+    <div id="admin-event-list" class="event-list">
+      <div class="empty-state">불러오는 중...</div>
+    </div>
+  </section>
+</main>
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+{% endblock %}

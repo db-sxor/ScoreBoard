@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
+:root{font-family:"DM Sans","Noto Sans KR",sans-serif;color:#172033;background:#f4f6fa;font-synthesis:none}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 12% 0%,#e4edff 0,transparent 28rem),#f4f6fa}
+button,input{font:inherit}
+button{cursor:pointer}
+h1{font-size:25px;letter-spacing:-.06em;margin:0;font-weight:800;color:#172033}
+
+.page-shell{width:min(920px,100% - 36px);margin:0 auto;padding:38px 0 40px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.simple-topbar{margin-bottom:24px}
+.admin-link{font-size:12px;color:#7b879b;text-decoration:none;border:1px solid #e2e6ee;background:#fff;border-radius:9px;padding:9px 13px}
+.simple-section-title{font-size:17px;letter-spacing:-.04em;margin:0 0 14px}
+
+/* Scoreboard */
+.team-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.team-card{background:#fff;border:1px solid #e8ebf1;border-radius:19px;padding:24px 22px;box-shadow:0 8px 24px #263c6410;min-width:0}
+.team-card.rank-first{border-color:#b8caff;box-shadow:0 10px 28px #5479d51c}
+.team-card-top{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.team-name{font-weight:700;font-size:17px;overflow-wrap:anywhere}
+.rank-badge{font-size:12px;color:#758198;background:#f0f2f6;padding:5px 10px;border-radius:99px;white-space:nowrap}
+.rank-first .rank-badge{background:#eaf0ff;color:#4268c7}
+.team-score{font-size:clamp(44px,7vw,68px);line-height:1.05;font-weight:800;letter-spacing:-.06em;margin:22px 0 20px;white-space:nowrap}
+.team-score small{font-size:18px;letter-spacing:0;color:#8792a7;margin-left:4px}
+.score-track{height:6px;background:#eef1f6;border-radius:9px;overflow:hidden}
+.score-track span{display:block;height:100%;background:#8ca7ee;border-radius:9px;transition:width .3s}
+.rank-first .score-track span{background:#4d74d6}
+
+/* Panels & history */
+.panel{background:#fff;border:1px solid #e8ebf1;border-radius:19px;padding:22px;box-shadow:0 8px 24px #263c640a}
+.history-panel{margin-top:18px}
+.event-list{display:flex;flex-direction:column}
+.event-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 0;border-top:1px solid #f0f2f6}
+.event-main,.event-right{display:flex;flex-direction:column;gap:4px;min-width:0}
+.event-main strong{font-size:14px}
+.event-main span,.event-right time{font-size:11px;color:#8a94a6}
+.event-right{text-align:right;flex-shrink:0}
+.event-right strong{font-size:15px}
+.positive{color:#258b60}.negative{color:#d45b65}
+.undone{opacity:.45}
+.public-history{padding:18px 20px}
+.public-history .simple-section-title{font-size:14px;color:#8a94a6;margin-bottom:6px}
+.public-history .event-row{padding:10px 0}
+.public-history .event-main strong{font-size:13px;font-weight:600}
+.public-history .event-right strong{font-size:13px}
+.empty-state,.loading-card{padding:24px 12px;text-align:center;color:#929bad;font-size:13px}
+
+/* Buttons & inputs */
+.primary-btn,.secondary-btn,.danger-btn,.ghost-btn{border:0;border-radius:11px;padding:14px 15px;font-weight:700;font-size:14px}
+.primary-btn{background:#456bd0;color:#fff;box-shadow:0 6px 14px #456bd02b}
+.primary-btn:disabled{background:#c9d3ee;color:#fff;cursor:not-allowed;box-shadow:none}
+.secondary-btn{background:#eef2fa;color:#53647f}
+.danger-btn{background:#fff0f1;color:#c04f5a}
+.ghost-btn{background:#fff;border:1px solid #e2e6ee;color:#667187;padding:10px 14px;font-size:13px}
+.full-btn{width:100%;margin-top:14px}
+.text-input,.login-card input{width:100%;border:1px solid #e1e5ed;background:#fbfcfe;border-radius:11px;padding:14px;outline:none;color:#172033;font-size:15px}
+.text-input:focus,.login-card input:focus{border-color:#829ce5;box-shadow:0 0 0 3px #829ce51c}
+
+/* Login */
+.login-wrap{min-height:100vh;display:grid;place-items:center;padding:20px}
+.login-card{width:min(360px,100%);padding:28px;background:#fff;border:1px solid #e8ebf1;border-radius:22px;box-shadow:0 18px 55px #263c6418}
+.login-card .full-btn{margin-top:12px}
+.alert{background:#fff0f0;color:#b84a53;padding:10px 12px;border-radius:9px;font-size:13px;margin-bottom:14px}
+
+/* Admin */
+.admin-shell{width:min(620px,100% - 36px)}
+.admin-shell .panel{margin-top:16px}
+.admin-shell .history-panel{margin-top:16px}
+.step-label{font-size:13px;font-weight:700;color:#53647f;margin:22px 0 10px}
+.control-panel .simple-section-title+.step-label{margin-top:4px}
+.admin-team-select{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.team-choice{background:#f5f7fb;border:2px solid #e6e9f0;color:#53647f;border-radius:13px;min-height:60px;padding:8px 6px;font-size:16px;font-weight:800;overflow-wrap:anywhere}
+.team-choice.active{background:#456bd0;border-color:#456bd0;color:#fff}
+.stepper{display:grid;grid-template-columns:72px 1fr 72px;gap:10px;align-items:stretch}
+.stepper-btn{background:#f5f7fb;border:2px solid #e6e9f0;border-radius:13px;min-height:64px;font-size:22px;color:#35425a;touch-action:manipulation;user-select:none}
+.stepper-btn:active{background:#e4eaf7}
+.stepper-value{display:grid;place-items:center;background:#fbfcfe;border:2px solid #e6e9f0;border-radius:13px;font-size:34px;font-weight:800;letter-spacing:-.04em;color:#35425a}
+.stepper-value.zero{color:#9aa3b2}
+.stepper-value.plus{color:#1f9d6a;border-color:#1f9d6a}
+.stepper-value.minus{color:#cb5260;border-color:#cb5260}
+.selected-summary{text-align:center;background:#f5f7fb;border-radius:13px;padding:16px 10px;font-size:24px;font-weight:800;color:#26344e;letter-spacing:-.03em}
+.selected-summary.empty{font-size:14px;font-weight:600;color:#9aa3b2;letter-spacing:0}
+.team-name-fields{display:flex;flex-direction:column;gap:10px}
+.utility-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+
+@media(max-width:650px){
+  .page-shell{width:calc(100% - 28px);padding-top:25px}
+  .simple-topbar{margin-bottom:19px}
+  .team-grid{grid-template-columns:1fr;gap:10px}
+  .team-card{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:12px;padding:18px 20px;border-radius:18px}
+  .team-card-top{flex-direction:column;align-items:flex-start;gap:8px}
+  .team-name{font-size:18px}
+  .team-score{font-size:clamp(52px,17vw,76px);margin:0;text-align:right}
+  .team-score small{font-size:18px}
+  .score-track{grid-column:1 / -1;margin-top:14px}
+  .public-history{padding:14px 16px}
+  .panel{padding:17px;border-radius:16px}
+  .history-panel{margin-top:14px}
+  .admin-shell{width:calc(100% - 28px)}
+  .admin-team-select{gap:8px}
+  .stepper{grid-template-columns:64px 1fr 64px;gap:8px}
+  .utility-actions{grid-template-columns:1fr}
+}
